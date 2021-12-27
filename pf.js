@@ -78,10 +78,10 @@ $(document).ready(function () {
             $(".ab").animate({ transform: "translateY(-40vh)", opacity: 1 }, 1000);
 
             /*skills width animation*/
-            $("#jsskill").animate({ width: "50%", opacity: 1 }, 1000);
-            $("#htmlskill").animate({ width: "50%", opacity: 1 }, 1000);
-            $("#jqskill").animate({ width: "20%", opacity: 1 }, 1000);
-            $("#javaskill").animate({ width: "70%", opacity: 1 }, 1000);
+            $("#jsskill").animate({ width: "70%", opacity: 1 }, 1000);
+            $("#htmlskill").animate({ width: "65%", opacity: 1 }, 1000);
+            $("#jqskill").animate({ width: "65%", opacity: 1 }, 1000);
+            $("#javaskill").animate({ width: "60%", opacity: 1 }, 1000);
             $("#dbskill").animate({ width: "60%", opacity: 1 }, 1000);
 
         }
