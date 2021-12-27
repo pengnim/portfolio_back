@@ -11,10 +11,10 @@ html {
   font-size: 15px;
   overflow-x: hidden;
 }
-
+/* 
 html::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
+  display: none; 
+} */
 
 ol,
 ul {

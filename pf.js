@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
 
+    //맨 처음 home화면 글자 애니메이션
     var delayCount = 0;
     $(".home").children().each(function () {
         $(this).delay(delayCount).animate({ opacity: "1" }, "150ms");
@@ -8,16 +9,32 @@ $(document).ready(function () {
     });
 
 
+    //각 영역별 위치값 가져오기
     var sec1 = $("#section1").offset().top;
     var sec2 = $("#section2").offset().top;
     var sec3 = $("#section3").offset().top;
     var sec4 = $("#section4").offset().top;
 
+
+
+    //스크롤 이벤트 발생 
     $(window).on('scroll', function (e) {
+
+        //현재 스크롤 위치 가져옴
         var current_scroll_position = $(window).scrollTop();
 
-
+        //각 section영역에 도달하면 해당영역 애니메이션 실행, 각 영역을 벗어나면 애니메이션을 멈춤 + 원래 모습으로 변경
+        //section1
         if (current_scroll_position >= 0 && current_scroll_position <= (sec1 + 250)) {
+
+
+            //현재 위치에 해당하는 메뉴 강조 활성화
+            $("#home").addClass("current_select");
+            $("#aboutme").removeClass("current_select");
+            $("#ability").removeClass("current_select");
+            $("#portfolio").removeClass("current_select");
+
+
             var delayCount = 0;
             $(".home").children().each(function () {
                 $(this).delay(delayCount).animate({ opacity: "1" }, "150ms");
@@ -31,7 +48,14 @@ $(document).ready(function () {
             });
         }
 
+
+        //section2
         if (current_scroll_position >= sec2 - 650 && current_scroll_position <= sec2 + 250) {
+
+            $("#home").removeClass("current_select");
+            $("#aboutme").addClass("current_select");
+            $("#ability").removeClass("current_select");
+            $("#portfolio").removeClass("current_select");
 
             $(".am").animate({ transform: "translateY(-40vh)", opacity: 1 }, 1000);
         }
@@ -41,8 +65,14 @@ $(document).ready(function () {
         }
 
 
+
+        //section3
         if (current_scroll_position >= sec3 - 650 && current_scroll_position <= sec3 + 250) {
 
+            $("#ability").addClass("current_select");
+            $("#aboutme").removeClass("current_select");
+            $("#home").removeClass("current_select");
+            $("#portfolio").removeClass("current_select");
 
             //처음 등장 애니메이션
             $(".ab").animate({ transform: "translateY(-40vh)", opacity: 1 }, 1000);
@@ -69,7 +99,14 @@ $(document).ready(function () {
         }
 
 
+        //section4
+
         if (current_scroll_position >= sec4 - 750) {
+
+            $("#portfolio").addClass("current_select");
+            $("#aboutme").removeClass("current_select");
+            $("#ability").removeClass("current_select");
+            $("#home").removeClass("current_select");
 
             $(".portarti").each(function (i) {
 
@@ -101,10 +138,6 @@ $(document).ready(function () {
 
     });
 
-
-
-    //처음 인사 애니메이션 한글자씩 나옴
-
     //이메일 부분 클릭하면 이메일 복사하기
     $("#myemail").on('click', function () {
         var $temp = $("<input>");
@@ -121,25 +154,11 @@ $(document).ready(function () {
 
         $('html, body').animate({ scrollTop: 0 }, "2s");
 
-        //home 위치로 이동해서 애니메이션 다시 재생
-
-        //현재 선택된 탭 활성화 및 다른 부분 비활성화
-        $(this).addClass("current_select");
-        $("#aboutme").removeClass("current_select");
-        $("#ability").removeClass("current_select");
-        $("#portfolio").removeClass("current_select");
-
-
     });
 
 
     $("#aboutme").click(function () {
         $('html, body').animate({ scrollTop: sec2 - 60 }, "2s");
-
-        $(this).addClass("current_select");
-        $("#home").removeClass("current_select");
-        $("#ability").removeClass("current_select");
-        $("#portfolio").removeClass("current_select");
 
 
     });
@@ -147,20 +166,10 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: sec3 - 60 }, "2s");
 
 
-        $(this).addClass("current_select");
-        $("#aboutme").removeClass("current_select");
-        $("#home").removeClass("current_select");
-        $("#portfolio").removeClass("current_select");
-
     });
     $("#portfolio").click(function () {
 
         $('html, body').animate({ scrollTop: sec4 - 80 }, "2s");
-
-        $(this).addClass("current_select");
-        $("#aboutme").removeClass("current_select");
-        $("#ability").removeClass("current_select");
-        $("#home").removeClass("current_select");
 
     });
 
